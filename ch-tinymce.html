@@ -25,7 +25,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-    <textarea>{{value}}</textarea>
+    <textarea value="{{value::input}}"></textarea>
+
 
   </template>
 
@@ -44,10 +45,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         value:{
           type:String,
-          value:'Hello Cloud'
+          value:'Hello Cloud',
+          notify:true
         }
       },
       attached:function () {
+        var that = this;
         tinymce.init({
           selector:'textarea',
           mode: 'exact',
@@ -61,7 +64,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           menubar:this.menubar,
           elementpath: false,
           toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          setup:function(ed) {
+            ed.on('change', function(e) {
+              that.value =  ed.getContent();
+              that.fire('changed', {kicked: true});
+            });
+          }
         });
+      },
+      valuechanged:function (e) {
+        console.log(e.target.value);
       }
     });
   </script>
