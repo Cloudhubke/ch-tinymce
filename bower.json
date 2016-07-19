@@ -1,0 +1,28 @@
+{
+  "name": "ch-tinymce",
+  "version": "1.0.7",
+  "authors": [
+    "Gaithoben <gaithoben@gmail.com>"
+  ],
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "ch-tinymce.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/cloudhubke/ch-tinymce/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "tinymce": "tinymce/tinymce-dist#^4.4.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  }
+}

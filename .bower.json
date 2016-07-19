@@ -1,0 +1,37 @@
+{
+  "name": "ch-tinymce",
+  "version": "1.0.7",
+  "authors": [
+    "Gaithoben  <gaithoben@gmail.com>"
+  ],
+  "description": "An polymer element based on timymce.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "ch-tinymce.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/cloudhubke/ch-tinymce/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0"
+  },
+  "_release": "1.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.7",
+    "commit": "ea6e7598c19f113b7db6a309cfd8c4e15614d6f7"
+  },
+  "_source": "git://github.com/cloudhubke/ch-tinymce.git",
+  "_target": "^1.0.7",
+  "_originalSource": "PolymerElements/ch-tinymce",
+  "_direct": true
+}
