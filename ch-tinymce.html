@@ -12,6 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 <dom-module id="ch-tinymce">
+
   <script src="../tinymce/tinymce.min.js"></script>
 
   <template>
@@ -25,7 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-    <textarea value="{{value::input}}"></textarea>
+    <textarea id="mcetextarea" value="{{value::input}}"></textarea>
 
 
   </template>
@@ -51,8 +52,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
       attached:function () {
         var that = this;
+        var node=this.$.mcetextarea;
         tinymce.init({
-          selector:'textarea',
+          selector: '#mcetextarea',
           mode: 'exact',
           height: this.height,
           theme: 'modern',
@@ -73,7 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
       },
       valuechanged:function (e) {
-        console.log(e.target.value);
+        console.log(e.target.selvalue);
       }
     });
   </script>
