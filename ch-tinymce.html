@@ -23,12 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     </style>
-
-
-
-    <textarea id="mcetextarea" value="{{value::input}}"></textarea>
-
-
+    <div id="mcetextarea" value="{{value::input}}" style="height: {{height}}"></div>
   </template>
 
   <script>
@@ -37,8 +32,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       properties: {
         height:{
-          type:Number,
-          value:100
+          type:String,
+          value:'100px'
         },
         menubar:{
           type:Boolean,
@@ -46,13 +41,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         value:{
           type:String,
-          value:'Hello Cloud',
+          value:'',
           notify:true
         }
       },
       attached:function () {
         var that = this;
         var node=this.$.mcetextarea;
+        console.log(node);
         tinymce.init({
           selector: '#mcetextarea',
           mode: 'exact',
@@ -69,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           setup:function(ed) {
             ed.on('change', function(e) {
               that.value =  ed.getContent();
-              that.fire('changed', {kicked: true});
+              that.fire('changed', ed.getContent());
             });
           }
         });
