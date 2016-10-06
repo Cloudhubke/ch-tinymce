@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "tinymce": "tinymce/tinymce-dist#^4.4.0"
+    "tinymce": "tinymce/tinymce-dist#^4.4.0",
+    "ch-tinymce": "cloudhubke/ch-tinymce#^1.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

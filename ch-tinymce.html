@@ -23,7 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     </style>
-    <div id="mcetextarea" value="{{value::input}}" style="height: {{height}}"></div>
+    <mcetextarea style="height: {{height}}"></mcetextarea>
   </template>
 
   <script>
@@ -39,18 +39,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type:Boolean,
           value:false
         },
-        value:{
+        content:{
           type:String,
           value:'',
-          notify:true
+          observer:'_valuechanged'
+        },
+        txt:{
+          type:String,
+          value:''
         }
       },
       attached:function () {
+        this.initEditor();
+      },
+      _valuechanged:function (e) {
+      },
+      setValue(id,val){
+        tinyMCE.get(id).setContent(val?val:'');
+      },
+      initEditor(){
         var that = this;
-        var node=this.$.mcetextarea;
-        console.log(node);
         tinymce.init({
-          selector: '#mcetextarea',
+          selector: 'mcetextarea',
           mode: 'exact',
           height: this.height,
           theme: 'modern',
@@ -65,13 +75,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           setup:function(ed) {
             ed.on('change', function(e) {
               that.value =  ed.getContent();
-              that.fire('changed', ed.getContent());
+              that.fire('contentchanged', ed.getContent());
             });
           }
         });
-      },
-      valuechanged:function (e) {
-        console.log(e.target.selvalue);
       }
     });
   </script>
